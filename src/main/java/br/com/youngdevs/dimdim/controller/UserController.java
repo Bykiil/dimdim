@@ -25,7 +25,7 @@ public class UserController {
 	private UserRepository repository;
 	
 	
-	@GetMapping("/user")
+	@GetMapping("/")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView("users");
 		List<User> users = repository.findAll();
@@ -46,13 +46,13 @@ public class UserController {
 		}
 		
 		repository.save(user);
-		return "redirect:/user";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/user/delete/{id}")
 	public String delete(@PathVariable Long id){
 		repository.deleteById(id);
-		return "redirect:/user";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/user/edit") 
@@ -71,7 +71,7 @@ public class UserController {
 		    repository.save(userDb);
 		}
 		
-		return "redirect:/user";
+		return "redirect:/";
 	}
 	
 	
