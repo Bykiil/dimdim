@@ -1,0 +1,32 @@
+node {
+   stage('Extrair Codigo Fonte') {
+         echo 'Extraindo codigo fonte...'
+         checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bykiil/dimdim.git']]])
+   }
+
+   stage('Build') {
+      echo 'Realizando o Build...'
+      sh '/opt/maven/bin/mvn clean install'
+   }
+
+   stage('Teste') {
+         echo 'Testando o codigo...'
+         sleep 4
+   }
+
+   stage('Aprovação e Deploy') {
+        timeout(time: 2, unit: "HOURS") {
+            def userInput = input(
+                id: 'userInput', message: 'Aprova o Deploy ?', parameters: [
+                [$class: 'TextParameterDefinition', defaultValue: 'Não', description: 'Realizar Deploy ?', name: 'Executar'] ] )
+            echo (userInput)
+            if (userInput == 'Sim') {
+                echo 'Realizando o Deploy em Desenvolvimento...'
+                //build 'pedra-papel-tesoura'
+                deploy adapters: [tomcat9(credentialsId: '696e989e-e771-473e-ad6e-2f53e0e1f0b7', path: '', url: 'http://localhost:8080')], onFailure: false, contextPath: 'DimDim', war: '**/*.war'
+            } else {
+                echo 'O Deploy impedido'
+            }
+        }
+    }
+}
