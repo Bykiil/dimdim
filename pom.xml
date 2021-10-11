@@ -9,13 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.youngdevs</groupId>
-	<artifactId>dimdim</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>dimdim</name>
+	<artifactId>DimDim</artifactId>
+	<version>1.0</version>
 	<packaging>war</packaging>
+	
+	<name>dimdim</name>
+	<url>http://www.youngdevs.com.br</url>
+	
 	<description>Checkpoint 01 do grupo YoungDevs 2TDSA</description>
 	<properties>
 		<java.version>11</java.version>
+    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    		<maven.compiler.source>1.7</maven.compiler.source>
+    		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,7 +79,35 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+			  <artifactId>maven-clean-plugin</artifactId>
+			  <version>3.0.0</version>
+			</plugin>
+			<!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+			<plugin>
+			  <artifactId>maven-resources-plugin</artifactId>
+			  <version>3.0.2</version>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <version>3.7.0</version>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-surefire-plugin</artifactId>
+			  <version>3.0.0-M4</version>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-war-plugin</artifactId>
+			  <version>3.2.0</version>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-install-plugin</artifactId>
+			  <version>2.5.2</version>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-deploy-plugin</artifactId>
+			  <version>2.8.2</version>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
