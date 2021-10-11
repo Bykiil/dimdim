@@ -13,7 +13,7 @@
 	<version>1.0</version>
 	<packaging>war</packaging>
 	
-	<name>dimdim</name>
+	<name>DimDim</name>
 	<url>http://www.youngdevs.com.br</url>
 	
 	<description>Checkpoint 01 do grupo YoungDevs 2TDSA</description>
@@ -65,7 +65,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>dimdim</finalName>
+		<finalName>DimDim</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
