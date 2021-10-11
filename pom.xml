@@ -16,6 +16,7 @@
 	<description>Checkpoint 01 do grupo YoungDevs 2TDSA</description>
 	<properties>
 		<java.version>11</java.version>
+		<maven-jar-pugin.version> 3.2.0</maven-jar-pugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
